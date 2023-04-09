@@ -1,0 +1,53 @@
+.form{
+    background: white;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+    margin: auto;
+    text-align: center;
+    height: 400px;
+    width: 750px;
+    border-radius: 12px;
+  }
+  
+  h1{
+    padding-top: 20px;
+  }
+  
+  .label{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  
+  .input{
+    border-radius: 4px;
+    border: none;
+  }
+  
+  .box{
+    background: gray;
+    box-shadow: 2px 2px 2px 2px lightgray;
+    border-radius: 12px;
+    margin: auto;
+    height: 200px;
+    width: 450px;
+  }
+  
+  .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: white;
+    background: linear-gradient(135deg, cyan, darkblue);
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 70px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(-135deg, cyan, darkblue);
+  } 
