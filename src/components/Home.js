@@ -79,8 +79,7 @@ export default function MyApp() {
       <input type="text" placeholder="Enter phone" value={phone} onChange={((e)=>setphone(e.target.value))} required></input>
       <input type="text" placeholder="Enter email" value={email} onChange={((e)=>setemail(e.target.value))} required></input>
       <input type="text" placeholder="Enter department" value={department} onChange={((e)=>setdepartment(e.target.value))} required></input>
-      {/* <input type="text" placeholder="Enter date" required></input> */}
-      {/* <DatePicker selected={date} onChange={(date) => setStartDate(date)} /> */}
+      <input type="text" placeholder="Enter date" required></input>
       <input type="text" placeholder="Enter salary" required></input>
       <input type="file"  onChange={imgFilehandler} ></input>
       </div>
