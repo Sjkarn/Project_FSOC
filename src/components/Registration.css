@@ -1,53 +1,58 @@
-.form{
-    background: white;
-    box-shadow: 2px 2px 2px 2px lightgrey;
-    margin: auto;
-    text-align: center;
-    height: 400px;
-    width: 750px;
-    border-radius: 12px;
-  }
-  
-  h1{
-    padding-top: 20px;
-  }
-  
-  .label{
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    padding-top: 20px;
-  }
-  
-  .input{
-    border-radius: 4px;
-    border: none;
-  }
-  
-  .box{
-    background: gray;
-    box-shadow: 2px 2px 2px 2px lightgray;
-    border-radius: 12px;
-    margin: auto;
-    height: 200px;
-    width: 450px;
-  }
-  
-  .btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    color: white;
-    background: linear-gradient(135deg, cyan, darkblue);
-    width: 100px;
-    height: 35px;
-    border: none;
-    border-radius: 8px;
-    margin-top: 70px;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background: linear-gradient(-135deg, cyan, darkblue);
-  } 
+.register{
+  background: white;
+  box-shadow: 2px 2px 2px 2px lightgrey;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  height: 495px;
+  width: 670px;
+  border-radius: 12px;
+}
+
+.text{
+  font-size: 10px;
+}
+
+.error{
+  font-size: 10px;
+}
+
+.label{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.inp{
+  border-radius: 4px;
+  border: none;
+}
+
+.block{
+  background: gray;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  border-radius: 12px;
+  margin: auto;
+  height: 270px;
+  width: 450px;
+}
+
+.bttn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  color: white;
+  background: linear-gradient(135deg, cyan, darkblue);
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 60px;
+  cursor: pointer;
+}
+
+.bttn:hover {
+  background: linear-gradient(-135deg, cyan, darkblue);
+} 

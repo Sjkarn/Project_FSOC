@@ -1,10 +1,6 @@
-import { useState, useEffect } from 'react';
 import * as React from 'react';
 import axios from 'axios';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ArticleIcon from '@mui/icons-material/Article';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import './Home.css';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -14,30 +10,28 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-
-
-
+import './Task.css';
 
 const columns = [
-  { id: 'name', label: 'Employee Name', minWidth: 110 },
-  { id: 'number', label: 'Number', minWidth: 70 },
+  { id: 'task name', label: 'Task Name', minWidth: 110 },
+  { id: 'details', label: 'Task Details', minWidth: 70 },
   {
-    id: 'email',
-    label: 'Email',
+    id: 'start_date',
+    label: 'Start Date',
     minWidth: 10,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
-    id: 'date',
-    label: 'Date of joining',
+    id: 'end_date',
+    label: 'End Date',
     minWidth: 110,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
-    id: 'salary',
-    label: 'Salary',
+    id: 'status',
+    label: 'Status',
     minWidth: 110,
     align: 'right',
     format: (value) => value.toFixed(2),
@@ -58,9 +52,14 @@ export default function StickyHeadTable() {
     setPage(0);
   };
 
+  const navigation= useNavigate();
+  function handleClicks() {
+    navigation("/task")
+  }
+
   useEffect(() => {
     axios
-      .get('http://localhost:3001/employee_details')
+      .get('http://localhost:3001/task_details')
       .then((res) => {
         console.log(res.data.data);
         setTaskData(res.data.data);
@@ -70,48 +69,8 @@ export default function StickyHeadTable() {
       });
   }, []);
 
-    const navigate= useNavigate();
-    function handleClick() {
-      navigate("/register")
-    }
-    
-    const navigations= useNavigate();
-    function handleclick1() {
-      navigations("/employee")
-    }
-
-    const navigation= useNavigate();
-    function handleClicks() {
-      navigation("/task_details")
-    }
-    
   return (
-    <div>
-     
-        <div className='header'>
-          <p>Task Assigner</p>
-          <div className='account'>
-          <AccountCircleIcon onClick={handleClick}/>
-          </div>
-          <div className='logo'>
-            <AssignmentIcon />
-          </div>
-          </div>
-        <div className='sidebar'>
-          <div className='icon'>
-            <AccountCircleIcon />
-          </div>
-          <h2>Employee</h2>
-          <div className='task'>
-            <ArticleIcon onClick={handleClicks}/>
-          </div>
-          <h2>Task</h2>
-        </div>
-       
-    <button className='switch' onClick={handleclick1}>
-        Add Employee
-    </button>  
-    <Paper sx={{ width: '60%', overflow: 'hidden', margin: 'auto', mt: '70px', ml:'430px' }}>
+    <Paper sx={{ width: '60%', overflow: 'hidden', margin: 'auto', mt: '70px' }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -126,6 +85,9 @@ export default function StickyHeadTable() {
                 </TableCell>
               ))}
             </TableRow>
+            <button className='switchs' onClick={handleClicks}>
+        Add Task
+    </button> 
           </TableHead>
           <TableBody>
             {taskDatas
@@ -133,11 +95,11 @@ export default function StickyHeadTable() {
               .map((row) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={row._id}>
-                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.name}</TableCell>
-                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.phone}</TableCell>
-                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.email}</TableCell>
-                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.date}</TableCell>
-                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.salary}</TableCell>
+                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.task}</TableCell>
+                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.task_details}</TableCell>
+                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.start_date}</TableCell>
+                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.end_date}</TableCell>
+                    <TableCell sx={{margin:'auto',textAlign:'center',bgcolor:'whitesmoke'}}>{row.status}</TableCell>
                   </TableRow>
                 );
               })}
@@ -154,6 +116,5 @@ export default function StickyHeadTable() {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
-    </div>
   );
 }

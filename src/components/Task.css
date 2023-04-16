@@ -1,0 +1,12 @@
+.switchs{
+    position: absolute;
+    top: 20px;
+    right: 280px;
+    width: 100px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    background: blue;
+    color: white;
+    cursor: pointer;
+   }
